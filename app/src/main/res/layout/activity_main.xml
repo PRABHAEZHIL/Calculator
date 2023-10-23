@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+
+        <variable
+            name="myViewModel"
+            type="com.kvep.calculator.MainActivityViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <LinearLayout
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <EditText
+                android:id="@+id/displayEditText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:layout_weight="0.35"
+                android:ems="10"
+                android:text="@{myViewModel.inputText}"
+                android:gravity="bottom|right"
+                android:hint="0"
+
+                android:textSize="80sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteY="94dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="textMultiLine"
+                android:lines="6"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/clearButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1.60"
+                    android:text="CLEAR"
+                    android:textSize="20sp"
+                    android:onClick="@{()->myViewModel.clearAll()}"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/divideButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->myViewModel.getOperator(divideButton.getText().toString())}"
+                    android:layout_margin="10dp"
+                    android:text="/"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:onClick="@{()->myViewModel.getNumber(button7.getText().toString())}"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="8"
+                    android:onClick="@{()->myViewModel.getNumber(button8.getText().toString())}"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="9"
+                    android:onClick="@{()->myViewModel.getNumber(button9.getText().toString())}"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/multipleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="*"
+                    android:onClick="@{()->myViewModel.getOperator(multipleButton.getText().toString())}"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:onClick="@{()->myViewModel.getNumber(button4.getText().toString())}"
+                    android:text="4"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:onClick="@{()->myViewModel.getNumber(button5.getText().toString())}"
+                    android:text="5"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="6"
+                    android:onClick="@{()->myViewModel.getNumber(button6.getText().toString())}"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/subtractButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="-"
+                    android:onClick="@{()->myViewModel.getOperator(subtractButton.getText().toString())}"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:onClick="@{()->myViewModel.getNumber(button1.getText().toString())}"
+                    android:text="1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:onClick="@{()->myViewModel.getNumber(button2.getText().toString())}"
+                    android:text="2"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="3"
+                    android:onClick="@{()->myViewModel.getNumber(button3.getText().toString())}"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/addButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="+"
+                    android:onClick="@{()->myViewModel.getOperator(addButton.getText().toString())}"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1.45"
+                    android:onClick="@{()->myViewModel.getNumber(button0.getText().toString())}"
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/dotButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="."
+                    android:onClick="@{()->myViewModel.setDecimal()}"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+                <Button
+                    android:id="@+id/equalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:onClick="@{()->myViewModel.showAnswer()}"
+                    android:text="="
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#CBC7C7" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
